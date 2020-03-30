@@ -78,6 +78,24 @@ img:hover {
     border: 5px solid rgb(255, 201, 100);
 }
 
+.user-win {
+    border-radius: 50%;
+    border: 5px solid #4dcc7d;
+    box-shadow: 0 0 10px #31b43a;
+}
+
+.user-lose {
+    border-radius: 50%;
+    border: 5px solid #fc3e44;
+    box-shadow: 0 0 10px #ff262a;
+}
+
+.user-draw {
+    border-radius: 50%;
+    border: 5px solid #8e8ea1;
+    box-shadow: 0 0 10px #3d4d55;
+}
+
 #action-message {
     margin-top: 2rem;
     text-align: center;

@@ -24,26 +24,41 @@ function win(userChoice, computerChoice) {
     userScore++;
     userScoreElement.innerHTML = userScore;
     computerScoreElement.innerHTML = computerScore;
+    
     const smallUserWord = "user".fontsize(3).sub();
     const smallCompWord = "comp".fontsize(3).sub();
     resultElement.innerHTML = `${convertToWord(userChoice)}${smallUserWord} beats ${convertToWord(computerChoice)}${smallCompWord}. You won!`;
+    
+    const userChoiseElement = document.getElementById(userChoice);
+    userChoiseElement.classList.add('user-win');
+    setTimeout(() => userChoiseElement.classList.remove('user-win'), 500);
 }
 
 function lose(userChoice, computerChoice) {
     computerScore++;
     userScoreElement.innerHTML = userScore;
     computerScoreElement.innerHTML = computerScore;
+    
     const smallUserWord = "user".fontsize(3).sub();
     const smallCompWord = "comp".fontsize(3).sub();
     resultElement.innerHTML = `${convertToWord(computerChoice)}${smallCompWord} beats ${convertToWord(userChoice)}${smallUserWord}. You lost!`;
+    
+    const userChoiseElement = document.getElementById(userChoice);
+    userChoiseElement.classList.add('user-lose');
+    setTimeout(() => userChoiseElement.classList.remove('user-lose'), 500);
 }
 
 function draw(userChoice, computerChoice) {
     userScoreElement.innerHTML = userScore;
     computerScoreElement.innerHTML = computerScore;
+    
     const smallUserWord = "user".fontsize(3).sub();
     const smallCompWord = "comp".fontsize(3).sub();
     resultElement.innerHTML = `${convertToWord(userChoice)}${smallUserWord} equals to ${convertToWord(computerChoice)}${smallCompWord}. It's a draw, play again!`;
+    
+    const userChoiseElement = document.getElementById(userChoice);
+    userChoiseElement.classList.add('user-draw');
+    setTimeout(() => userChoiseElement.classList.remove('user-draw'), 500);
 }
 
 function play(userChoice) {
@@ -71,17 +86,9 @@ function play(userChoice) {
 }
 
 function main() {
-    rockElement.addEventListener('click', function() {
-        play("r");
-    })
-    
-    paperElement.addEventListener('click', function() {
-        play("p");
-    })
-    
-    scissorsElement.addEventListener('click', function() {
-        play("s");
-    })
+    rockElement.addEventListener('click', () => play("r"));
+    paperElement.addEventListener('click', () => play("p"));
+    scissorsElement.addEventListener('click', () => play("s"));
 }
 
 main();
